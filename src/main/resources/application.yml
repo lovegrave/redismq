@@ -1,0 +1,36 @@
+#########如果使用spring的redis可以直接使用这个配置########
+# redis连接
+spring:
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    # password:
+    jedis:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+      timeout: 0
+
+#当调用borrow Object方法时，是否进行有效性检查
+redis:
+  pool:
+    testOnBorrow: true
+#当调用return Object方法时，是否进行有效性检查
+    testOnReturn: true
+
+######################消息队列################
+# 队列的监听数量
+mq:
+  monitor:
+    count: 30
+# 队列一
+  queue:
+    first: queue:1
+# 队列二
+    second: queue:2
+# 消费列表一
+  consumer:
+    first: list:1
+# 消费列表二
+    second: list:2
